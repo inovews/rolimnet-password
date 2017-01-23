@@ -57,6 +57,7 @@
                                                     <option>---</option>
                                                     <option value="1">Mikrotik</option>
                                                     <option value="2">Ubiquiti</option>
+                                                    <option value="3">FiberHome</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -76,6 +77,11 @@
                                                 </div>
                                             </div>
                                         </div>
+
+                                        <div class="control-group">
+                                        {!! app('captcha')->display($attributes = [], $lang = null); !!}
+                                        </div>
+                                        
                                         <div class="control-group">
                                             <label></label>
                                             <div class="controls">

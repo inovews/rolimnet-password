@@ -61,6 +61,8 @@ trait AuthenticatesUsers
     {
         $this->validate($request, [
             $this->username() => 'required', 'password' => 'required',
+            // ESSA LINHA QUE VAI FUNCONAR QUANDO TUDO TIVER PRONTO NO DOMINIO.
+            //$this->username() => 'required', 'password' => 'required', 'g-recaptcha-response' => 'required|captcha',
         ]);
     }
 

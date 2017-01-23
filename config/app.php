@@ -180,9 +180,24 @@ return [
 
         /*
          * Associate users with roles and permissions
-         *https://github.com/spatie/laravel-permission
+         * https://github.com/spatie/laravel-permission
          */
         Spatie\Permission\PermissionServiceProvider::class,
+
+        /*
+         * Laravel 5.1 package: user registration / login / logout / profile editing / password reset
+         * https://github.com/kiwi26/laravel5-usermanager
+         */
+        //Kiwi\UserManager\UserManagerServiceProvider::class,
+
+        /*
+         * No CAPTCHA reCAPTCHA For Laravel.
+         * https://github.com/anhskohbo/no-captcha
+         * reCAPTCHA Validator for Laravel 5
+         * https://github.com/greggilbert/recaptcha
+         */
+        Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
+        Greggilbert\Recaptcha\RecaptchaServiceProvider::class,
 
     ],
 
@@ -231,6 +246,9 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'UserManager' => Kiwi\UserManager\Facades\UserManager::class,
+        'Recaptcha' => Greggilbert\Recaptcha\Facades\Recaptcha::class,
+        'NoCaptcha' => 'Anhskohbo\NoCaptcha\Facades\NoCaptcha'
 
     ],
 

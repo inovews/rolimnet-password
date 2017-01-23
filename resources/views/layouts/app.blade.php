@@ -12,7 +12,8 @@
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
             ]); ?>
-        </script>
+    </script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
     </head>
 <body>
         <nav class="navbar navbar-default navbar-static-top">

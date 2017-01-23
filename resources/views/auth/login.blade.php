@@ -47,6 +47,13 @@
                                 </div>
                             </div>
                         </div>
+                        
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                {!! app('captcha')->display($attributes = [], $lang = null); !!}
+                                <div class="g-recaptcha" data-sitekey="6Lfxa-cSAAAAAJXBvGtYtRXuup_xJXuyw_dMYgGs"></div>
+                            </div>
+                        </div>
 
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">

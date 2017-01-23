@@ -3,8 +3,8 @@
 namespace Spatie\Permission\Traits;
 
 use Illuminate\Support\Collection;
-use Spatie\Permission\Contracts\Permission;
 use Spatie\Permission\Contracts\Role;
+use Spatie\Permission\Contracts\Permission;
 
 trait HasRoles
 {
@@ -50,7 +50,7 @@ trait HasRoles
             $roles = $roles->toArray();
         }
 
-        if (!is_array($roles)) {
+        if (! is_array($roles)) {
             $roles = [$roles];
         }
 
@@ -69,8 +69,6 @@ trait HasRoles
                 }
             });
         });
-
-        return $query;
     }
 
     /**
@@ -240,7 +238,7 @@ trait HasRoles
         if (is_string($permission)) {
             $permission = app(Permission::class)->findByName($permission);
 
-            if (!$permission) {
+            if (! $permission) {
                 return false;
             }
         }
