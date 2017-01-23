@@ -1,29 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Styles -->
-    <link href="/css/app.css" rel="stylesheet">
-
-    <!-- Scripts -->
+    <title>Gerador de Senha</title>
+    <meta name="generator" content="Bootply" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
     <script>
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
-        ]); ?>
-    </script>
-</head>
+            ]); ?>
+        </script>
+    </head>
 <body>
-    <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="navbar-header">
 
                     <!-- Collapsed Hamburger -->
@@ -36,7 +29,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        Rolim Net - Gerador de Senha
                     </a>
                 </div>
 
@@ -63,7 +56,7 @@
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            Logout
+                                            Sair
                                         </a>
 
                                         <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
@@ -79,9 +72,13 @@
         </nav>
 
         @yield('content')
-    </div>
+
+        <footer class="text-center">© 2017 INTRANET - Rolim Net</footer>
 
     <!-- Scripts -->
-    <script src="/js/app.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/valida.js"></script>
+    <script src="/js/cpf-cnpj.js"></script>
 </body>
 </html>

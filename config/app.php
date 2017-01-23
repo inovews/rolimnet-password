@@ -178,6 +178,12 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * Associate users with roles and permissions
+         *https://github.com/spatie/laravel-permission
+         */
+        Spatie\Permission\PermissionServiceProvider::class,
+
     ],
 
     /*
