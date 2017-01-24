@@ -10,8 +10,17 @@ use App\Http\Controllers\Controller;
 use App\Task;
 use App\Repositories\TaskRepository;
 
+use Auth;
+
 class TaskController extends Controller
 {
+
+    protected $rules = [
+        'name'          => 'required|max:60',
+        'description'   => 'max:155',
+        'completed'     => 'numeric',
+    ];
+
     /**
      * The task repository instance.
      *
@@ -51,7 +60,7 @@ class TaskController extends Controller
      * @param  Request  $request
      * @return Response
      */
-    public function store(Request $request)
+    /*public function store(Request $request)
     {
         $this->validate($request, [
             'name' => 'required|max:255',
@@ -61,9 +70,17 @@ class TaskController extends Controller
             'name' => $request->name,
         ]);
 
-        return redirect('/');
+        return redirect('/tasks');
+    }*/
+    public function store(Request $request)
+    {
+        $this->validate($request, $this->rules);
+        $user                   = Auth::user();
+        $task                   = $request->all();
+        $task['user_id']        = $user->id;
+        Task::create($task);
+        return redirect('/tasks')->with('success', 'Task created');
     }
-
     /**
      * Destroy the given task.
      *
@@ -77,6 +94,10 @@ class TaskController extends Controller
 
         $task->delete();
 
-        return redirect('/');
+        //alert()->overlay('Info', 'You deleted the task with id ' . $task->id, "info");
+
+        return redirect('/tasks');
     }
+
+
 }
