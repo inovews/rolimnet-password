@@ -18,6 +18,7 @@ class TaskController extends Controller
      * @var TaskRepository
      */
     protected $tasks;
+
     /**
      * Create a new controller instance.
      *
@@ -26,92 +27,49 @@ class TaskController extends Controller
      */
     public function __construct(TaskRepository $tasks)
     {
-     $this->middleware('auth');
+        $this->middleware('auth');
 
-     $this->tasks = $tasks;
- }
-
+        $this->tasks = $tasks;
+    }
 
     /**
-     * Display a listing of the resource.
+     * Display a list of all of the user's task.
      *
-     * @return \Illuminate\Http\Response
+     * @param  Request  $request
+     * @return Response
      */
     public function index(Request $request)
     {
         return view('tasks.index', [
             'tasks' => $this->tasks->forUser($request->user()),
-            ]);
+        ]);
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Create a new task.
      *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param  Request  $request
+     * @return Response
      */
     public function store(Request $request)
     {
         $this->validate($request, [
             'name' => 'required|max:255',
-            ]);
+        ]);
 
         $request->user()->tasks()->create([
             'name' => $request->name,
-            ]);
+        ]);
 
         return redirect('/');
     }
 
     /**
-     * Display the specified resource.
+     * Destroy the given task.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  Request  $request
+     * @param  Task  $task
+     * @return Response
      */
     public function destroy(Request $request, Task $task)
     {

@@ -13,8 +13,8 @@
 
 		<ul class="nav nav-stacked collapse" id="menu2">
 			<li><a href="{{ url('/tools') }}"><i class="glyphicon glyphicon-cog"></i> Ferramentas</a></li>
-			<li><a href="{{ url('/tasks') }}"><i class="glyphicon glyphicon-cog"></i> Tarefas</a></li>
-			<li><a href="#"><i class="glyphicon glyphicon-user"></i> Usuários</a></li>
+			<li><a href="{{ url('/tasks') }}"><i class="glyphicon glyphicon-th-large"></i> Tarefas</a></li>
+			<li><a href="{{ url('/users') }}"><i class="glyphicon glyphicon-user"></i> Usuários</a></li>
 		</ul>
 	</li>
 </ul>

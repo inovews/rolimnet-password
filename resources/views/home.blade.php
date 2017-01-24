@@ -86,8 +86,8 @@
                                             <label></label>
                                             <div class="controls">
                                                 <button type="button" class="btn btn-primary" id="bt_gerar_senha">Gerar</button>
-                                                <button type="submit" class="btn btn-success">Salvar</button>
-                                                <button class="btn btn-default">Limpar</button>
+                                                <button type="submit" class="btn btn-success">Cadastrar</button>
+                                                <button type="reset" class="btn btn-default">Limpar</button>
                                             </div>
                                         </div>
                                     </form>
