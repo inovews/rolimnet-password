@@ -8,12 +8,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/styles.css" rel="stylesheet">
+    <link href="/css/login.css" rel="stylesheet">
     <script>
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
             ]); ?>
     </script>
     <script src='https://www.google.com/recaptcha/api.js'></script>
+
+    <link href="/full/font-awesome-4.7.0/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+    <link href="/full/data-tables/css/dataTables.bootstrap.css" type="text/css" rel="stylesheet">
+
     </head>
 <body>
         <nav class="navbar navbar-default navbar-static-top">
@@ -77,9 +82,15 @@
         <footer class="text-center">© 2017 INTRANET - Rolim Net</footer>
 
     <!-- Scripts -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
     <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/valida.js"></script>
-    <script src="/js/cpf-cnpj.js"></script>
+
+    <script type="text/javascript" language="javascript" src="//cdn.datatables.net/1.10.3/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" language="javascript" src="/full/data-tables/js/dataTables.bootstrap.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function() {
+            $('#example').DataTable();
+        } );
+    </script>
 </body>
 </html>

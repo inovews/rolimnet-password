@@ -1,14 +1,12 @@
 @extends('layouts.app')
-@section('title')
-Index
-@stop
+
 @section('content')
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-3">
+        <div class="col-sm-2">
             @include('layouts.include.menu')
         </div>
-        <div class="col-sm-9">
+        <div class="col-sm-10">
             <div class="row">
                 <div class="col-md-12">
                     Aqui vai o Menu do Tasks
@@ -16,50 +14,45 @@ Index
             </div>
             <hr>
         </div>
-        <div class="col-sm-9">
-        @if (count($users) > 0)
+        <div class="col-sm-10">
+            <div class="col-sm-10">
+                @if (count($users) > 0)
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Lista de Tarefas
+                        <h2>Lista de Usuários
+                            <a href="#" class="btn btn-primary pull-right">Criar novo Usuário</a>
+                        </h2>
                     </div>
 
                     <div class="panel-body">
-                        <table class="table table-striped task-table">
+                        <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered table-condensed" id="example">
                             <thead>
-                                <th>Tarefas</th>
-                                <th>&nbsp;</th>
+                                <tr>
+                                    <th class="hidden-xs">ID</th>
+                                    <th>Nome</th>
+                                    <th>Email</th>
+                                    <th>Criado</th>
+                                    <th>Atualizado</th>
+                                </tr>
                             </thead>
                             <tbody>
                                 @foreach ($users as $user)
                                 <tr>
-                                    <td><a href="{{action('UsersController@show', [$user->id])}}">{{$user->name}}</a></td>
-                                    <td><div>{{$user->email}}</div></td>
-
-                                    <td>
-                                        <form action="/user/{{$user->id}}" method="POST">
-                                            {{ csrf_field() }}
-                                            {{ method_field('DELETE') }}
-                                            <button type="submit" id="editar-task-{{$user->id}}" class="btn btn-primary">
-                                                <i class="fa fa-btn fa-trash"></i>Editar
-                                            </button>
-                                        </form>
-                                    </td>
-                                    <td>
-                                        <form action="/user/{{$user->id}}" method="POST">
-                                            {{ csrf_field() }}
-                                            {{ method_field('DELETE') }}
-                                            <button type="submit" id="delete-task-{{$user->id}}" class="btn btn-danger">
-                                                <i class="fa fa-btn fa-trash"></i>Deletar
-                                            </button>
-                                        </form>
-                                    </td>
+                                    <td><a href="{{action('UsersController@show', [$user->id])}}">{{$user->id}}</a></td>
+                                    <td><a href="{{action('UsersController@show', [$user->id])}}">{{$user->name}} </a></td>
+                                    <td><a href="{{action('UsersController@show', [$user->id])}}">{{$user->email}} </a></td>
+                                    <td><a href="{{action('UsersController@show', [$user->id])}}">{{$user->created_at}} </a></td>
+                                    <td><a href="{{action('UsersController@show', [$user->id])}}">{{$user->updated_at}} </a></td>
                                 </tr>
+
                                 @endforeach
+
                             </tbody>
                         </table>
                     </div>
                 </div>
                 @endif
+            </div>
         </div>
     </div>
 </div>

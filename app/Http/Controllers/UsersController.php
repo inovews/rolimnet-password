@@ -4,18 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ToolsController extends Controller
+use App\User;
+
+use Auth;
+
+class UsersController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
+
+    public function __construct() {
         $this->middleware('auth');
     }
-
     /**
      * Display a listing of the resource.
      *
@@ -23,8 +21,9 @@ class ToolsController extends Controller
      */
     public function index()
     {
-        //
-        return view('tools.home');
+        $users = User::all();
+
+        return view('users.index')->with('users', $users);
     }
 
     /**
@@ -54,9 +53,10 @@ class ToolsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
         //
+        return view('users.show', compact('user'));
     }
 
     /**
