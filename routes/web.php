@@ -18,9 +18,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
-Route::group(['prefix' => 'tools'], function () {
-	Route::get('/', 'ToolsController@index');
-});
+
+Route::resource('tools', 'ToolsController');
+
+Route::resource('pwsrolimnet', 'PasswordRolimnetController');
 
 Route::get('/tasks', 'TaskController@index');
 Route::post('/task', 'TaskController@store');
