@@ -4,7 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
+
 use App\PasswordRolimnet;
+
+//use Illuminate\Support\Facades\Session;
 
 class PasswordRolimnetController extends Controller
 {
@@ -27,7 +32,7 @@ class PasswordRolimnetController extends Controller
      */
     public function create()
     {
-        //
+        return view('pwsrolimnet.index');
     }
 
     /**
@@ -38,7 +43,21 @@ class PasswordRolimnetController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|min:5|max:100',
+            'contract' => 'required',
+            'password' => 'required'
+        ]);
+
+        $pwsrolimnet = $request->all();
+
+        //dd($pwsrolimnet);
+
+        PasswordRolimnet::create($pwsrolimnet);
+
+        //Session::flash('flash_message', 'Task successfully added!');
+
+        return redirect('/pwsrolimnet')->with('success', 'Task created');
     }
 
     /**

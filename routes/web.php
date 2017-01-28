@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
+Route::get('/', 'HomeController@index');
 
 Auth::routes();
 
@@ -22,6 +23,7 @@ Route::get('/home', 'HomeController@index');
 Route::resource('tools', 'ToolsController');
 
 Route::resource('pwsrolimnet', 'PasswordRolimnetController');
+Route::post('/pwsrolimnet', 'PasswordRolimnetController@store');
 
 Route::get('/tasks', 'TaskController@index');
 Route::post('/task', 'TaskController@store');

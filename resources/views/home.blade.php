@@ -6,6 +6,21 @@
         <div class="col-sm-3">
             @include('layouts.include.menu')
         </div>
+        <!--<div class="col-sm-9">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4>Status Geral</h4>
+                        </div>
+                        <div class="panel panel-default">
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>-->
         <div class="col-sm-9">
             <div class="row">
                 <div class="col-md-6">
@@ -25,13 +40,12 @@
                                     </div>
                                 </div>
                                 <div class="panel-body">
-                                    <form class="form form-vertical">
-                                    <script type="text/javascript">var csrfToken = "{{ csrf_token() }}";</script>
-                                    <script type="text/javascript" src="/js/gerador_senha.js"></script>
+                                    <form action="/pwsrolimnet" method="POST" class="form form-vertical">
+                                        <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
                                         <div class="control-group">
                                             <label>Nome</label>
                                             <div class="controls">
-                                                <input type="text" class="form-control" name="nome" required placeholder="Nome">
+                                                <input type="text" class="form-control" name="name" required placeholder="Nome">
                                             </div>
                                         </div>
                                         <div class="control-group ">
@@ -47,13 +61,13 @@
                                         <div class="control-group">
                                             <label>Contrato</label>
                                             <div class="controls">
-                                                <input type="number" class="form-control" name="contrato" required placeholder="Contrato">
+                                                <input type="number" class="form-control" name="contract" required placeholder="Contrato">
                                             </div>
                                         </div>
                                         <div class="control-group">
                                             <label>Tipo</label>
                                             <div class="controls">
-                                                <select class="form-control" name="tipo">
+                                                <select name="equipments" class="form-control">
                                                     <option>---</option>
                                                     <option value="1">Mikrotik</option>
                                                     <option value="2">Ubiquiti</option>
@@ -64,22 +78,21 @@
                                         <div class="input-group">
                                             <label></label>
                                             <div class="input-group">
-                                                <span class="input-group-addon" id="tamanho-name">Tamanho</span>
-                                                <input class="form-control" id="tamanho-number" type="number" min="8" max="32" value="8" required="required" disabled>
+                                                <span class="input-group-addon">Tamanho</span>
+                                                <input class="form-control" name="tamanho-number" type="number" min="8" max="32" value="8" required="required" disabled>
                                             </div>
                                         </div>
                                         <hr>
                                         <div>
                                             <div class="well well-lg">                                
                                                 <div class="control-group">
-                                                    <label for="texto_resposta" hidden></label>
-                                                    <input type="text" class="form-control" name="senha_cliente" id="senha_cliente" placeholder="Sua nova senha">
+                                                    <input type="text" class="form-control" name="password" id="password" placeholder="Sua nova senha">
                                                 </div>
                                             </div>
                                         </div>
 
                                         <div class="control-group">
-                                        {!! app('captcha')->display($attributes = [], $lang = null); !!}
+                                            {!! app('captcha')->display($attributes = [], $lang = null); !!}
                                         </div>
                                         
                                         <div class="control-group">
@@ -115,6 +128,28 @@
                             </div>
 
                             <hr>
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3>Recentes</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered table-condensed" id="example">
+                                        <thead>
+                                            <th class="hidden-xs">ID</th>
+                                            <th>Nome</th>
+                                            <th>Senha</th>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
