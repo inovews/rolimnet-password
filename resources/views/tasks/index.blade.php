@@ -64,7 +64,6 @@
                 -->
 
                 <!-- Current Tasks -->
-                @if (count($tasks) > 0)
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h2>Lista de Tarefas
@@ -73,6 +72,7 @@
                     </div>
 
                     <div class="panel-body">
+                    @if (count($tasks) > 0)
                         <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered table-condensed" id="example">
                             <thead>
                                 <th class="hidden-xs">ID</th>
@@ -92,14 +92,14 @@
                                             <i class="fa fa-btn fa-trash"></i>
                                         </button>
                                     </form>
-                                </td>
-                            </tr>
+                                    </td>
+                                </tr>
                             @endforeach
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
+                    @endif
                 </div>
             </div>
-            @endif
         </div>
     </div>
 </div>

@@ -61,7 +61,7 @@
                                         <div class="control-group">
                                             <label>Contrato</label>
                                             <div class="controls">
-                                                <input type="number" class="form-control" name="contract" required placeholder="Contrato">
+                                                <input type="number" class="form-control" name="contract" min="0" max="8" required placeholder="Contrato">
                                             </div>
                                         </div>
                                         <div class="control-group">
